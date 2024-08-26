@@ -1,13 +1,25 @@
 import Header from './Components/Header/Header'
 import './App.css'
+import Recipes from './Components/Recipes/Recipes'
+import { useEffect, useState } from 'react'
 
 function App() {
 
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    fetch('recipes.json')
+    .then(res => res.json())
+    .then(data => setRecipes(data))
+  }, [])
 
   return (
-    <main className='mx-52 mt-10'>
+    <div className='mx-52 mt-10'>
       <Header></Header>
-    </main>
+      <main className='mt-20'>
+        <Recipes recipes={recipes} ></Recipes>
+      </main>
+    </div>
   )
 }
 
