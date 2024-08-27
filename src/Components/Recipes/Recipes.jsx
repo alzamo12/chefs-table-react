@@ -1,20 +1,20 @@
 import Recipe from "../recipe/recipe";
 import PropTypes from 'prop-types'
 
-const Recipes = ({recipes}) => {
+const Recipes = ({recipes, handleWantToCook}) => {
     
     return (
-        <div>
-            <h2 className="text-4xl text-black">{recipes.length}</h2>
+        <div className="grid grid-cols-2">
             {
-              recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} ></Recipe>)  
+              recipes.map(recipe => <Recipe key={recipe.id} handleWantToCook={handleWantToCook} recipe={recipe} ></Recipe>)  
             }
         </div>
     );
 };
 
 Recipes.propTypes ={
-    recipes: PropTypes.array.isRequired
+    recipes: PropTypes.array.isRequired,
+    handleWantToCook: PropTypes.func
 }
 
 export default Recipes;
