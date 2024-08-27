@@ -38,9 +38,9 @@ function App() {
   // console.log(newRecipes)
 
   return (
-    <div className='mx-52 mt-10'>
+    <div className='md:mx-52 md:mt-10'>
       <Header></Header>
-      <main className='mt-20 flex gap-5'>
+      <main className='md:mt-20 md:flex  gap-5'>
         <Recipes recipes={recipes} handleWantToCook={handleWantToCook} ></Recipes>
         <Cooks deleteData={deleteData} newRecipes={newRecipes}></Cooks>
       </main>

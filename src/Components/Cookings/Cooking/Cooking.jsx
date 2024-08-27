@@ -6,7 +6,7 @@ const Cooking = ({ cooking }) => {
     console.log(cooking)
     return (
 
-        <tr className='mt-4 bg-[#ecebeb]'>
+        <tr className=' bg-[#ecebeb] rounded-xl md:p-4 md:m-4'>
             <th className='px-4 py-2'>{name}</th>
             <th className='px-4 py-2'>{time}</th>
             <th>{calories}</th>

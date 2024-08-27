@@ -28,9 +28,9 @@ const Cooks = ({ newRecipes, deleteData }) => {
         
     }
     return (
-        <div className="w-[750px] h-auto border-black border-solid border-2">
+        <div className="md:w-1/3 h-1/3 border-black border-solid border-[1px] grid justify-center">
             <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: {updatedRecipes.length}</h1>
-            <hr className='mx-16 mb-5' />
+            <hr className=' mb-5' />
             <table className=''>
                 <thead>
                     <tr >
