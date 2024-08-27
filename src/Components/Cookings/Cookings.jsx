@@ -2,9 +2,10 @@ import Cooking from "./Cooking/Cooking";
 import PropTypes from 'prop-types'
 
 const Cookings = ({cookings}) => {
+
     return (
         <div>
-            <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: </h1>
+            <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: {cookings.length}</h1>
             <hr className='mx-16 mb-5' />
            <table className=''>
                 <thead>
@@ -16,7 +17,7 @@ const Cookings = ({cookings}) => {
                 </thead>
                 <tbody className='space-y-20'>
                     {
-                        cookings.map(cooking => <Cooking key={cooking.div} cooking={cooking}></Cooking>)
+                        cookings.map(cooking => <Cooking key={cooking.id} cooking={cooking}></Cooking>)
                     }
                 </tbody>
                 

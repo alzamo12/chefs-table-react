@@ -28,14 +28,21 @@ function App() {
     const newRecipeArr = [...newRecipes, recipe ];
     setNewRecipe(newRecipeArr)
   }
-  console.log(newRecipes)
+
+  const deleteData = (currentlyCooking) => {
+    if(currentlyCooking){
+      const newCurrentlyCooking = newRecipes.filter(newRecipe => newRecipe.id !== currentlyCooking.id)
+      setNewRecipe(newCurrentlyCooking)
+    }
+  }
+  // console.log(newRecipes)
 
   return (
     <div className='mx-52 mt-10'>
       <Header></Header>
       <main className='mt-20 flex gap-5'>
         <Recipes recipes={recipes} handleWantToCook={handleWantToCook} ></Recipes>
-        <Cooks newRecipes={newRecipes}></Cooks>
+        <Cooks deleteData={deleteData} newRecipes={newRecipes}></Cooks>
       </main>
       <ToastContainer></ToastContainer>
     </div>
