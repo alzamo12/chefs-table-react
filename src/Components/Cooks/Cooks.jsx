@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
 import Cook from '../Cook/Cook';
 import Cookings from '../Cookings/Cookings';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Cooks = ({newRecipes}) => {
-
-   
+    console.log(newRecipes)
+   const [updatedRecipe, setUpdatedRecipe] = useState(newRecipes);
+    useEffect(() => {
+           setUpdatedRecipe(newRecipes) 
+    }, [newRecipes])
+    console.log(updatedRecipe)
 
     const [cookings, setCooking] = useState([]);
     const handleCooking = (currentlyCooking) => {
@@ -14,7 +18,7 @@ const Cooks = ({newRecipes}) => {
     }
     return (
         <div className="w-[750px] h-auto border-black border-solid border-2">
-            <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: {newRecipes.length}</h1>
+            <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: {updatedRecipe.length}</h1>
             <hr className='mx-16 mb-5' />
            <table className=''>
                 <thead>
@@ -26,7 +30,7 @@ const Cooks = ({newRecipes}) => {
                 </thead>
                 <tbody className='space-y-20'>
                 {
-                    newRecipes.map((newRecipe, idx) => <Cook key={idx} handleCooking={handleCooking} newRecipe={newRecipe}></Cook>)
+                    updatedRecipe.map((newRecipe, idx) => <Cook key={idx} handleCooking={handleCooking} newRecipe={newRecipe}></Cook>)
                 }
                 </tbody>
                 

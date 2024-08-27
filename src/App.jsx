@@ -18,6 +18,7 @@ function App() {
     .then(res => res.json())
     .then(data => setRecipes(data))
   }, [])
+  // console.log(newRecipes)
 
   const handleWantToCook = (recipe) => {
     if(newRecipes.includes(recipe)){
@@ -27,6 +28,7 @@ function App() {
     const newRecipeArr = [...newRecipes, recipe ];
     setNewRecipe(newRecipeArr)
   }
+  console.log(newRecipes)
 
   return (
     <div className='mx-52 mt-10'>
