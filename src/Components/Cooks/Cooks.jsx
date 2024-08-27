@@ -1,23 +1,37 @@
 import PropTypes from 'prop-types'
 import Cook from '../Cook/Cook';
+import Cookings from '../Cookings/Cookings';
+import { useState } from 'react';
 
 const Cooks = ({newRecipes}) => {
+
+   
+
+    const [cookings, setCooking] = useState([]);
+    const handleCooking = (currentlyCooking) => {
+        const newCooking = [...cookings, currentlyCooking ];
+        setCooking(newCooking)
+    }
     return (
-        <div className="w-[600px] h-auto border-black border-solid border-2">
-           <table>
+        <div className="w-[750px] h-auto border-black border-solid border-2">
+            <h1 className='text-center text-2xl font-semibold mb-6 mt-6'>Want To Cook: {newRecipes.length}</h1>
+            <hr className='mx-16 mb-5' />
+           <table className=''>
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Time</th>
-                    <th>Calories</th>
+                <tr >
+                    <th className='px-4 py-2'>Name</th>
+                    <th className='px-4 py-2'>Time</th>
+                    <th className='px-4 py-2'>Calories</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className='space-y-20'>
                 {
-                    newRecipes.map((newRecipe, idx) => <Cook key={idx} newRecipe={newRecipe}></Cook>)
+                    newRecipes.map((newRecipe, idx) => <Cook key={idx} handleCooking={handleCooking} newRecipe={newRecipe}></Cook>)
                 }
                 </tbody>
+                
            </table>
+           <Cookings cookings={cookings}></Cookings>
         </div>
     );
 };
